@@ -178,7 +178,7 @@ $('document').ready(function(){
     <select name="sex" class="required" id="sex" onchange="$('input[name=nama_sex]').val($(this).find(':selected').text());">
       <option value="">Pilih Jenis Kelamin</option>
       <?php foreach($sex as $data){?>
-        <option value="<?php echo $data['id']?>" <?php if($data['nama']==$_SESSION['post']['sex']) echo 'selected'?>><?php echo $data['nama']?></option>
+        <option value="<?php echo $data['id']?>" <?php if($data['id']==$_SESSION['post']['sex']) echo 'selected'?>><?php echo $data['nama']?></option>
       <?php }?>
     </select>
   </td>
@@ -195,11 +195,11 @@ $('document').ready(function(){
 <tr>
   <th>Tempat Dilahirkan </th>
   <td>
-    <input name="tempatlahirbayi" type="radio" id="radio2" value="1" /><label for="radio2">RS/RB</label>
-    <input name="tempatlahirbayi" type="radio" value="2" id="radio3" /><label for="radio3">Puskesmas</label>
-    <input name="tempatlahirbayi" type="radio" value="3" id="radio4" /><label for="radio4">Rumah</label>
-    <input name="tempatlahirbayi" type="radio" value="4" id="radio5" /><label for="radio5">Polindes</label>
-    <input name="tempatlahirbayi" type="radio" value="5" id="radio6" /><label for="radio6">
+    <input name="tempatlahirbayi" type="radio" value="1" id="radio2" <?php if($_SESSION['post']['tempatlahirbayi']=='1'){echo 'checked';}?>/><label for="radio2">RS/RB</label>
+    <input name="tempatlahirbayi" type="radio" value="2" id="radio3" <?php if($_SESSION['post']['tempatlahirbayi']=='2'){echo 'checked';}?>/><label for="radio3">Puskesmas</label>
+    <input name="tempatlahirbayi" type="radio" value="3" id="radio4" <?php if($_SESSION['post']['tempatlahirbayi']=='3'){echo 'checked';}?>/><label for="radio4">Rumah</label>
+    <input name="tempatlahirbayi" type="radio" value="4" id="radio5" <?php if($_SESSION['post']['tempatlahirbayi']=='4'){echo 'checked';}?>/><label for="radio5">Polindes</label>
+    <input name="tempatlahirbayi" type="radio" value="5" id="radio6" <?php if($_SESSION['post']['tempatlahirbayi']=='5'){echo 'checked';}?>/><label for="radio6">
     Lainnya</label>
   </td>
 </tr>
@@ -210,10 +210,10 @@ $('document').ready(function(){
 <tr>
   <th>Jenis Kelahiran </th>
   <td valign="baseline">
-    <input name="jenislahir" type="radio" id="radio11" value="1" /><label for "radio11">Tunggal</label>
-    <input name="jenislahir" type="radio" value="2" id="radio12" /><label for="radio12">Kembar 2</label>
-    <input name="jenislahir" type="radio" value="3" id="radio13" /><label for="radio13">Kembar 3</label>
-    <input name="jenislahir" type="radio" value="4" id="radio14" /><label for="radio14">Kembar 4 </label>
+    <input name="jenislahir" type="radio" value="1" id="radio11" <?php if($_SESSION['post']['jenislahir']=='1'){echo 'checked';}?>/><label for "radio11">Tunggal</label>
+    <input name="jenislahir" type="radio" value="2" id="radio12" <?php if($_SESSION['post']['jenislahir']=='2'){echo 'checked';}?>/><label for="radio12">Kembar 2</label>
+    <input name="jenislahir" type="radio" value="3" id="radio13" <?php if($_SESSION['post']['jenislahir']=='3'){echo 'checked';}?>/><label for="radio13">Kembar 3</label>
+    <input name="jenislahir" type="radio" value="4" id="radio14" <?php if($_SESSION['post']['jenislahir']=='4'){echo 'checked';}?>/><label for="radio14">Kembar 4 </label>
   </td>
 </tr>
 <tr>
@@ -226,10 +226,10 @@ $('document').ready(function(){
 <tr>
   <th>Penolong Kelahiran </th>
   <td>
-    <input name="penolong" type="radio" id="radio16" value="1" /><label for="radio16">Dokter</label>
-    <input name="penolong" type="radio" value="2" id="radio8" /><label for="radio8">Bidan Perawat</label>
-    <input name="penolong" type="radio" value="3" id="radio9" /><label for="radio9">Dukun</label>
-    <input name="penolong" type="radio" value="4" id="radio15" /><label for="radio10">Lainnya</label>
+    <input name="penolong" type="radio" value="1" id="radio16" <?php if($_SESSION['post']['penolong']=='1'){echo 'checked';}?>/><label for="radio16">Dokter</label>
+    <input name="penolong" type="radio" value="2" id="radio8" <?php if($_SESSION['post']['penolong']=='2'){echo 'checked';}?>/><label for="radio8">Bidan Perawat</label>
+    <input name="penolong" type="radio" value="3" id="radio9" <?php if($_SESSION['post']['penolong']=='3'){echo 'checked';}?>/><label for="radio9">Dukun</label>
+    <input name="penolong" type="radio" value="4" id="radio15" <?php if($_SESSION['post']['penolong']=='4'){echo 'checked';}?>/><label for="radio10">Lainnya</label>
   </td>
 </tr>
 <tr>
@@ -261,14 +261,14 @@ $('document').ready(function(){
     <select name="jkpelapor" class="required" id="jkpelapor">
       <option value="">Pilih Jenis Kelamin</option>
       <?php foreach($sex as $data){?>
-        <option value="<?php echo $data['id']?>" <?php if($data['nama']==$_SESSION['post']['jkpelapor']) echo 'selected'?>><?php echo $data['nama']?></option>
+        <option value="<?php echo $data['id']?>" <?php if($data['id']==$_SESSION['post']['jkpelapor']) echo 'selected'?>><?php echo $data['nama']?></option>
       <?php }?>
     </select>
     <span class="judul"> Pekerjaan </span>
     <select name="pekerjaanpelapor" class="required" id="pekerjaanpelapor">
       <option value="">Pilih Pekerjaan</option>
       <?php  foreach($pekerjaan as $data){?>
-        <option value="<?php echo $data['nama']?>"><?php echo $data['nama']?></option>
+        <option value="<?php echo $data['nama']?>" <?php if($data['nama']==$_SESSION['post']['pekerjaanpelapor']) echo 'selected'?>><?php echo $data['nama']?></option>
       <?php }?>
     </select>
   </td>
@@ -352,14 +352,14 @@ $('document').ready(function(){
               <select name="jksaksi1" class="required" id="jksaksi1">
                 <option value="">Pilih Jenis Kelamin</option>
                 <?php foreach($sex as $data){?>
-                  <option value="<?php echo $data['id']?>" <?php if($data['nama']==$_SESSION['post']['jksaksi1']) echo 'selected'?>><?php echo $data['nama']?></option>
+                  <option value="<?php echo $data['id']?>" <?php if($data['id']==$_SESSION['post']['jksaksi1']) echo 'selected'?>><?php echo $data['nama']?></option>
                 <?php }?>
               </select>
               <span class="judul">Pekerjaan </span>
               <select name="pekerjaansaksi1" class="required" id="pekerjaansaksi1">
                 <option value="">Pilih Pekerjaan</option>
                 <?php  foreach($pekerjaan as $data){?>
-                  <option value="<?php echo $data['nama']?>"><?php echo $data['nama']?></option>
+                  <option value="<?php echo $data['nama']?>" <?php if($data['nama']==$_SESSION['post']['pekerjaansaksi1']) echo 'selected'?>><?php echo $data['nama']?></option>
                 <?php }?>
               </select>
             </td>
@@ -392,20 +392,22 @@ $('document').ready(function(){
 </tr>
 <tr>
   <th>Nama</th>
-  <td><input name="nama_saksi2" type="text" class="inputbox required" id="nama_saksi2" size="100"/></td>
+  <td><input name="nama_saksi2" type="text" class="inputbox required" id="nama_saksi2" size="100"  value="<?php echo $_SESSION['post']['nama_saksi2']?>"/></td>
 </tr>
 <tr>
   <th>NIK</th>
-  <td><input name="nik_saksi2" type="text" class="inputbox required" id="nik_saksi2" size="70"/></td>
+  <td><input name="nik_saksi2" type="text" class="inputbox required" id="nik_saksi2" size="70" value="<?php echo $_SESSION['post']['nik_saksi2']?>"/></td>
 </tr>
 <tr>
   <th>Tempat Lahir </th>
-  <td><input name="tempat_lahir_saksi2" type="text" class="inputbox required" id="tempat_lahir_saksi2" size="40"/>
+  <td>
+    <input name="tempat_lahir_saksi2" type="text" class="inputbox required" id="tempat_lahir_saksi2" size="40" value="<?php echo $_SESSION['post']['tempat_lahir_saksi2']?>"/>
     <span class="judul"> Tanggal Lahir : </span>
-    <input name="tanggal_lahir_saksi2" type="text" class="inputbox required datepicker" id="tanggal_lahir_saksi2" size="11" onchange="$('input[name=umur_saksi2]').val(_calculateAge($(this).val()));"/>
+    <input name="tanggal_lahir_saksi2" type="text" class="inputbox required datepicker" id="tanggal_lahir_saksi2" size="11" onchange="$('input[name=umur_saksi2]').val(_calculateAge($(this).val()));" value="<?php echo $_SESSION['post']['tanggal_lahir_saksi2']?>"/>
     <span class="judul"> Umur : </span>
-    <input name="umur_saksi2" readonly="readonly" type="text" class="inputbox required" id="umur_saksi2" size="5"/>
-    tahun</td>
+    <input name="umur_saksi2" readonly="readonly" type="text" class="inputbox required" id="umur_saksi2" size="5" value="<?php echo $_SESSION['post']['umur_saksi2']?>"/>
+    tahun
+  </td>
 </tr>
 <tr>
   <th>Jenis Kelamin </th>
@@ -413,32 +415,36 @@ $('document').ready(function(){
     <select name="jksaksi2" class="required" id="jksaksi2">
       <option value="">Pilih Jenis Kelamin</option>
       <?php foreach($sex as $data){?>
-        <option value="<?php echo $data['id']?>"><?php echo $data['nama']?></option>
+        <option value="<?php echo $data['id']?>" <?php if($data['id']==$_SESSION['post']['jksaksi2']) echo 'selected'?>><?php echo $data['nama']?></option>
       <?php }?>
     </select>
     <span class="judul">Pekerjaan </span>
     <select name="pekerjaansaksi2" class="required" id="pekerjaansaksi2">
       <option value="">Pilih Pekerjaan</option>
       <?php  foreach($pekerjaan as $data){?>
-      <option value="<?php echo $data['nama']?>"><?php echo $data['nama']?></option>
+      <option value="<?php echo $data['nama']?>" <?php if($data['nama']==$_SESSION['post']['pekerjaansaksi2']) echo 'selected'?>><?php echo $data['nama']?></option>
       <?php }?>
     </select>
   </td>
 </tr>
 <tr>
   <th>Alamat</th>
-  <td><p>Desa <span class="judul"> : </span>
-          <input name="desasaksi2" type="text" class="inputbox required" id="desasaksi2" size="40"/>
-          <span class="judul"> Kecamatan : </span>
-          <input name="kecsaksi2" type="text" class="inputbox required" id="kecsaksi2" size="40"/>
-  </p>
-      <p>&nbsp;</p>
-    <p>Kab<span class="judul"> &nbsp;:&nbsp; </span>
-          <input name="kabsaksi2" type="text" class="inputbox required" id="kabsaksi2" size="40"/>
-          <span class="judul"> Provinsi &nbsp;&nbsp;&nbsp;&nbsp;: </span>
-          <input name="provinsisaksi2" type="text" class="inputbox required" id="provinsisaksi2" size="40"/>
-    </p></td>
-	</tr>
+  <td>
+    <p>
+      Desa <span class="judul"> : </span>
+      <input name="desasaksi2" type="text" class="inputbox required" id="desasaksi2" size="40" value="<?php echo $_SESSION['post']['desasaksi2']?>"/>
+      <span class="judul"> Kecamatan : </span>
+      <input name="kecsaksi2" type="text" class="inputbox required" id="kecsaksi2" size="40" value="<?php echo $_SESSION['post']['kecsaksi2']?>"/>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      Kab<span class="judul"> &nbsp;:&nbsp; </span>
+      <input name="kabsaksi2" type="text" class="inputbox required" id="kabsaksi2" size="40" value="<?php echo $_SESSION['post']['kabsaksi2']?>"/>
+      <span class="judul"> Provinsi &nbsp;&nbsp;&nbsp;&nbsp;: </span>
+      <input name="provinsisaksi2" type="text" class="inputbox required" id="provinsisaksi2" size="40" value="<?php echo $_SESSION['post']['provinsisaksi2']?>"/>
+    </p>
+  </td>
+</tr>
 <tr>
   <th>&nbsp;</th>
   </tr>
@@ -452,7 +458,7 @@ $('document').ready(function(){
 </tr>
 <tr>
   <th>Lokasi Disdukcapil <?php echo ucwords($this->setting->sebutan_kabupaten)?></th>
-  <td><input name="lokasi_disdukcapil" type="text" class="inputbox required" size="40"/></td>
+  <td><input name="lokasi_disdukcapil" type="text" class="inputbox required" size="40" value="<?php echo $_SESSION['post']['lokasi_disdukcapil']?>"/></td>
 </tr>
 	<?php include("donjo-app/views/surat/form/_pamong.php"); ?>
         </table>
