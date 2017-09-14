@@ -24,7 +24,7 @@
 		Jika saksi2 warga desa, ganti kolom isiannya dengan data dari database penduduk
 	*/
 	if($input['id_saksi2']) {
-		$saksi1 = $this->get_data_surat($input['id_saksi2']);
+		$saksi2 = $this->get_data_surat($input['id_saksi2']);
 		$array_replace = array(
 	                "[nama_saksi2]"        		=> $saksi2['nama'],
 	                "[nik_saksi2]"       			=> $saksi2['nik'],
