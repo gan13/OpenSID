@@ -20,4 +20,23 @@
 		$buffer = str_replace(array_keys($array_replace), array_values($array_replace), $buffer);
 	}
 
+	/*
+		Jika saksi2 warga desa, ganti kolom isiannya dengan data dari database penduduk
+	*/
+	if($input['id_saksi2']) {
+		$saksi1 = $this->get_data_surat($input['id_saksi2']);
+		$array_replace = array(
+	                "[nama_saksi2]"        		=> $saksi2['nama'],
+	                "[nik_saksi2]"       			=> $saksi2['nik'],
+	                "[tempat_lahir_saksi2]"   => $saksi2['tempatlahir'],
+	                "[tanggal_lahir_saksi2]"	=> tgl_indo_dari_str($saksi2['tanggallahir']),
+	                "[umur_saksi2]"  					=> $saksi2['umur'],
+	                "[pekerjaansaksi2]" 			=> $saksi2['pekerjaan'],
+	                "[form_desasaksi2]"       => $config['nama_desa'],
+	                "[form_kecsaksi2]"       	=> $config['nama_kecamatan'],
+	                "[form_kabsaksi2]"       	=> $config['nama_kabupaten'],
+	                "[form_provinsisaksi2]"   => $config['nama_provinsi']
+		);
+		$buffer = str_replace(array_keys($array_replace), array_values($array_replace), $buffer);
+	}
 ?>
