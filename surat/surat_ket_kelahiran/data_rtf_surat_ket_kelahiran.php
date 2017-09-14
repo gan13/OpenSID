@@ -39,4 +39,28 @@
 		);
 		$buffer = str_replace(array_keys($array_replace), array_values($array_replace), $buffer);
 	}
+
+	/*
+		Jika pelapor warga desa, ganti kolom isiannya dengan data dari database penduduk
+	*/
+	if($input['id_pelapor']) {
+		$pelapor = $this->get_data_surat($input['id_pelapor']);
+		$array_replace = array(
+	                "[form_nama_pelapor]"      => $pelapor['nama'],
+	                "[nama_pelapor]"      		 => $pelapor['nama'],
+	                "[form_nik_pelapor]"       => $pelapor['nik'],
+	                "[nik_pelapor]"       		 => $pelapor['nik'],
+	                "[tempat_lahir_pelapor]"   => $pelapor['tempatlahir'],
+	                "[tanggal_lahir_pelapor]"	 => tgl_indo_dari_str($pelapor['tanggallahir']),
+	                "[form_umur_pelapor]"  		 => $pelapor['umur'],
+	                "[umur_pelapor]"  		 		 => $pelapor['umur'],
+	                "[form_pekerjaanpelapor]"  => $pelapor['pekerjaan'],
+	                "[pekerjaanpelapor]"  		 => $pelapor['pekerjaan'],
+	                "[form_desapelapor]"       => $config['nama_desa'],
+	                "[form_kecpelapor]"        => $config['nama_kecamatan'],
+	                "[form_kabpelapor]"        => $config['nama_kabupaten'],
+	                "[form_provinsipelapor]"   => $config['nama_provinsi']
+		);
+		$buffer = str_replace(array_keys($array_replace), array_values($array_replace), $buffer);
+	}
 ?>

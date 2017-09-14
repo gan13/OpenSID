@@ -29,4 +29,14 @@
 			unset($_SESSION['id_saksi2']);
 		}
 
+		if($this->input->post('pelapor')==2) unset($_SESSION['id_pelapor']);
+		if($_POST['id_pelapor'] != '' AND $_POST['id_pelapor'] !='*'){
+			$data['pelapor']=$this->surat_model->get_penduduk($_POST['id_pelapor']);
+			$_SESSION['id_pelapor'] = $_POST['id_pelapor'];
+		}elseif ($_POST['id_pelapor'] !='*' AND isset($_SESSION['id_pelapor'])){
+			$data['pelapor']=$this->surat_model->get_penduduk($_SESSION['id_pelapor']);
+		}else{
+			unset($data['pelapor']);
+			unset($_SESSION['id_pelapor']);
+		}
 ?>
